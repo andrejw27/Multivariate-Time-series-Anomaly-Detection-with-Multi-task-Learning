@@ -26,4 +26,4 @@ Datasets used in the experiments:
 - Server Machine Dataset (SMD) is a server machine dataset obtained at a large internet company by the authors of OmniAnomaly. (https://github.com/NetManAIOps/OmniAnomaly)
 
 Limitation:
-- The results of the baselines are obtained using the hyperparameter setup set in each resource but only the sliding window size was changed. 
+- The results of the baselines were obtained using the hyperparameter setup set in each resource but only the sliding window size was changed. 
