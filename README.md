@@ -1,6 +1,6 @@
 # Multivariate-Time-series-Anomaly-Detection-with-Multi-task-Learning
 
-This is an attempt of using multi-task learning to develop anomaly detection in multivariate time-series. This work is done as a Master Thesis.
+This is an attempt to develop anomaly detection in multivariate time-series of using multi-task learning. This work is done as a Master Thesis.
 
 Abstract:
 
