@@ -4,7 +4,6 @@ import numpy as np
 import matplotlib.pyplot as plt
 from utils import *
 from lstm_vae.vae import *
-from lstm_vae.gru_vae import *
 
 tf.compat.v1.disable_v2_behavior()
 from keras.models import load_model
