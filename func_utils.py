@@ -17,7 +17,7 @@ def decode(z, dec):
     return mu_hat, log_sigma_hat
 
 def reconstructed_probability(x, enc, dec, last_only=True):
-    n_samples = 1
+    n_samples = 100
     mu_hat = np.zeros(x.shape)
     log_sigma_hat = np.zeros(x.shape)
     for i in range(n_samples):
@@ -51,7 +51,7 @@ def train_model(x_train, y_train, model, epochs, dataset, save_model=True, load_
     print(20*"="+" Training Model "+20*"=")
     from keras.callbacks import History, EarlyStopping, Callback, ReduceLROnPlateau, ModelCheckpoint
 
-    checkpoint_path = "/home/wijaya/Thesis/Thesis_sub/checkpoint/"+dataset+"/w_"+str(window)+"_"+file_att+"/cp.ckpt"
+    checkpoint_path = "/checkpoint/"+dataset+"/w_"+str(window)+"_"+file_att+"/cp.ckpt"
     checkpoint_dir = os.path.dirname(checkpoint_path)
 
     cbs = [History(), EarlyStopping(monitor='val_loss', patience=5, min_delta=0.0001, verbose=1), 
@@ -81,7 +81,7 @@ def train_model(x_train, y_train, model, epochs, dataset, save_model=True, load_
     #with open(hist_json_file, mode='w') as f:
     #    hist_df.to_json(f)
     
-    train_hist_dir = "/home/wijaya/Thesis/Thesis_sub/result/train_history/"+dataset+"/"
+    train_hist_dir = "/result/train_history/"+dataset+"/"
     
     if os.path.exists(train_hist_dir) == False:
         os.mkdir(train_hist_dir)
@@ -129,7 +129,7 @@ def get_score(x_train, y_train, x_test, y_test, model, enc, dec, dataset, window
     
     test_time = time.time() - test_start
 
-    test_hist_dir = "/home/wijaya/Thesis/Thesis_sub/result/train_history/"+dataset+"/"
+    test_hist_dir = "/result/train_history/"+dataset+"/"
     
     if os.path.exists(test_hist_dir) == False:
         os.mkdir(test_hist_dir)
@@ -162,7 +162,7 @@ def get_eval_param(x_score, x_test_score, x_test_labels, mae_train, mae_test, wi
         
     test_labels = x_test_labels[:,-1]
     
-    score_dir = "/home/wijaya/Thesis/Thesis_sub/result/scores/"+dataset+"/"
+    score_dir = "/result/scores/"+dataset+"/"
     
     if os.path.exists(score_dir) == False:
         os.mkdir(score_dir)
@@ -183,7 +183,7 @@ def test_model(train_score, test_score, test_labels, window, dataset, level, fil
     #evaluating the results
     result = pot_eval(train_score, test_score, test_labels.reshape(-1), q=1e-4, level=level)
 
-    eval_dir = "/home/wijaya/Thesis/Thesis_sub/result/eval/"+dataset+"/"
+    eval_dir = "/result/eval/"+dataset+"/"
     
     if os.path.exists(eval_dir) == False:
         os.mkdir(eval_dir)
