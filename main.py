@@ -10,23 +10,23 @@ session = tf.Session(config=config)
 keras.backend.set_session(session)
 
 def get_args():
-    parser = argparse.ArgumentParser()
+	parser = argparse.ArgumentParser()
+	
+	parser.add_argument("--prefix", type=str, default="Thesis Dataset")
     
-    parser.add_argument("--prefix", type=str, default="Thesis Dataset")
-    
-    #input for dataset file
-    parser.add_argument("--datasets", type=str, required=True, default=['MSL'])
-    
-    #model params
-    parser.add_argument("--window", type=int, required=True, default=[100])
-    parser.add_argument("--alphas", type=float, default=[0.0, 0.25, 0.5, 0.75, 1.0])
-    parser.add_argument("--intermediate-dim", type=int, default=100)                  
-    parser.add_argument("--latent-dim", type=int, default=3)
-    parser.add_argument("--dropout-rate", type=float, default=0.3)
-    
-    #train params
-    parser.add_argument("--epochs", type=int, default=30)
-    parser.add_argument("--batch-size", type=int, default=64)
+	#input for dataset file
+	parser.add_argument("--datasets", type=str, required=True, default=['MSL'])
+
+	#model params
+	parser.add_argument("--window", type=int, required=True, default=[100])
+	parser.add_argument("--alphas", type=float, default=[0.0, 0.25, 0.5, 0.75, 1.0])
+	parser.add_argument("--intermediate-dim", type=int, default=100)                  
+	parser.add_argument("--latent-dim", type=int, default=3)
+	parser.add_argument("--dropout-rate", type=float, default=0.3)
+
+	#train params
+	parser.add_argument("--epochs", type=int, default=30)
+	parser.add_argument("--batch-size", type=int, default=64)
 
 def train(args):
 	
@@ -144,7 +144,7 @@ def train(args):
 
 
 if __name__ == "__main__":
-    args = get_args()
-    train(args)
+	args = get_args()
+	train(args)
 
 
