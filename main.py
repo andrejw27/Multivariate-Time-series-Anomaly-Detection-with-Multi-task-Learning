@@ -50,7 +50,7 @@ def train(args):
 			print(10*"="+"Loss weight alpha "+str([(1-alpha), alpha])+10*"=")
 
 			#pre-processing the dataset
-			x_train, y_train_, x_test, y_test_, x_train_labels, x_test_labels = preprocess(dataset, window_length)
+			x_train, y_train_, x_test, y_test_, x_train_labels, x_test_labels = preprocess(prefix, dataset, window_length)
 
 			#take the last x, i.e. xt as the target for the forecasting model in y_train as well as in y_test 
 			y_train = x_train[:,-1,:]
