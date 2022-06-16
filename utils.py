@@ -47,10 +47,10 @@ def get_data_dim(dataset):
     else:
         raise ValueError('unknown dataset '+str(dataset))
 
-def preprocess(dataset, window_length):
+def preprocess(prefix, dataset, window_length):
     print("="*10 + "Reading and Processing Dataset" + "="*10)
     
-    x_train_,x_test_,x_anom_labels = get_data(dataset)
+    x_train_,x_test_,x_anom_labels = get_data(prefix, dataset)
 
     #transform into dataframe to analyze it and drop columns whose mean is 0 
     x_test_df = array_to_df(x_test_)
